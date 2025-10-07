@@ -39,7 +39,8 @@ pub struct MakeOffer<'info> {
     pub offer: Account<'info, Offer>,
 
     #[account(
-        mut,
+        init,
+        payer = maker,
         associated_token::mint = token_mint_a,
         associated_token::authority = offer,
         associated_token::token_program = token_program,
